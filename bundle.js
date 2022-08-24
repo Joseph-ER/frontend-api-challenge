@@ -15,8 +15,17 @@
             callback(data);
           });
         }
-        findUser(id, handle) {
-          fetch("https://chitter-backend-api-v2.herokuapp.com/peeps");
+        createUser(username, password) {
+          fetch("https://chitter-backend-api-v2.herokuapp.com/users", {
+            method: "POST",
+            "Content-Type": "application/json",
+            user: { handle: JSON.stringify(username), password: JSON.stringify(password) }
+          }).then((response) => {
+            response.json();
+            console.log(response);
+          }).then((data) => {
+            console.log("success:", data);
+          });
         }
         newPeep(body, timePosted) {
           fetch("https://chitter-backend-api-v2.herokuapp.com/peeps", {
@@ -67,6 +76,12 @@
             console.log(document.querySelector("#peep-content").value);
             this.api.newPeep(document.querySelector("#peep-content").value, Date.now());
           });
+          this.newUserButton = document.querySelector("#new-user-button").addEventListener("click", () => {
+            let username = document.querySelector("#username-field").value;
+            let password = document.querySelector("#password-field").value;
+            console.log(username, password);
+            this.api.createUser(username, password);
+          });
         }
         viewPeeps() {
           this.models.peeps.forEach((peep) => {
@@ -102,4 +117,5 @@
   var api = new Api();
   var models = new Models();
   var views = new Views(models, api);
+  views.getPeepsFromApi();
 })();

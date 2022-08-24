@@ -9,8 +9,20 @@ class Api{
     })
   }
 
-  findUser(id, handle){
-    fetch("https://chitter-backend-api-v2.herokuapp.com/peeps")
+  createUser(username, password){
+    fetch("https://chitter-backend-api-v2.herokuapp.com/users",{
+    method: 'POST',
+    'Content-Type': 'application/json',
+      user: 
+      {handle: JSON.stringify(username), password: JSON.stringify(password)}
+    })
+    .then((response)=> {
+      response.json();
+      console.log(response);
+    })
+    .then((data)=> {
+      console.log('success:', data);
+    })
   }
 
   newPeep(body, timePosted){

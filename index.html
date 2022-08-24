@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
   <h1>
+    <input type="text" id="username-field" value=""/>
+    <input type="password" id="password-field" value=""/>
+    <input class="btn-primary" type="submit" id="new-user-button"/>
+  </h1>
+  <h1>
       <p>Write a peep!</p>
       <input type="text" id="peep-content" value=""/>
-      <input class="btn btn-primary" type="submit" id="new-peep-button">
+      <input class="btn-primary" type="submit" id="new-peep-button"/>
   </h1>
 
   <body>
     <div id="main-container">
-      <script>
+      <!-- <script>
         models.this.peeps.forEach(peep=> {
           document.write(peep.body);
         })
-      </script>
+      </script> -->
     </div>
   </body>
   <script type="text/javascript" src="bundle.js"></script>
