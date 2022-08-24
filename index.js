@@ -6,4 +6,4 @@ const api = new Api();
 const models = new Models();
 const views = new Views(models, api);
 
-views.getPeepsFromApi();
+// views.getPeepsFromApi();

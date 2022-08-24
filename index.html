@@ -8,6 +8,11 @@
 
   <body>
     <div id="main-container">
+      <script>
+        models.this.peeps.forEach(peep=> {
+          document.write(peep.body);
+        })
+      </script>
     </div>
   </body>
   <script type="text/javascript" src="bundle.js"></script>

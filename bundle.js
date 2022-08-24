@@ -70,9 +70,15 @@
         }
         viewPeeps() {
           this.models.peeps.forEach((peep) => {
-            const divEl = document.createElement("div");
-            divEl.innerHTML = peep.body;
-            this.mainDivEl.appendChild(divEl);
+            const peepEl = document.createElement("div");
+            const userEl = document.createElement("div");
+            const timeEl = document.createElement("div");
+            peepEl.innerText = peep.body;
+            userEl.innerText = peep.user.handle;
+            timeEl.innerText = peep.created_at;
+            this.mainDivEl.appendChild(peepEl);
+            this.mainDivEl.appendChild(userEl);
+            this.mainDivEl.appendChild(timeEl);
             const brEl = document.createElement("p");
             brEl.innerText = "------------";
             this.mainDivEl.appendChild(brEl);
@@ -96,5 +102,4 @@
   var api = new Api();
   var models = new Models();
   var views = new Views(models, api);
-  views.getPeepsFromApi();
 })();
